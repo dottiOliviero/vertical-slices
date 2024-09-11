@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+
 from app.features.cat.router import cat_router
 
 router = APIRouter()

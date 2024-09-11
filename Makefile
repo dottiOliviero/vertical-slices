@@ -1,8 +1,5 @@
-migrate:
-	poetry run alembic upgrade head
-
-create_migration:
-	poetry run alembic revision --autogenerate -m "$(message)"
-
 start:
 	poetry run python app/main.py
+
+migrate:
+	sqitch deploy db:pg://test:test@localhost:5432/test --cd migrations

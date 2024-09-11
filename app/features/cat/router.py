@@ -1,6 +1,9 @@
 from fastapi import APIRouter
-from .create.create import create_cat_route
 
-cat_router = APIRouter(prefix="/cat")
+from .create.handler import create_cat_route
 
-cat_router.routes = [create_cat_route]
+cat_router = APIRouter(
+    routes=[
+        create_cat_route
+    ]
+)

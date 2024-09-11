@@ -1,5 +1,7 @@
 from fastapi import FastAPI
-from app.features.router import router
+
+from app.features.main_router import router
+
 
 def create_server():
     fastapi_app = FastAPI()
