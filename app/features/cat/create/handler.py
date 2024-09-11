@@ -1,8 +1,8 @@
+from fastapi.exceptions import HTTPException
 from fastapi.routing import APIRoute
-from fastapi.exceptions import HTTPException 
-from .use_case import create_cat
-from .models import CreateCatRequestBody, Cat
 
+from .models import Cat, CreateCatRequestBody
+from .use_case import create_cat
 
 
 def create_cat_handler(cat: CreateCatRequestBody):

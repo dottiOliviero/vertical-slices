@@ -1,14 +1,17 @@
-import psycopg2
-import psycopg2.extras
-from app.conf import settings
 from contextlib import contextmanager
+
+import psycopg2
+from psycopg2.extras import RealDictCursor
+
+from app.conf import settings
+
 
 @contextmanager
 def cursor_generator():
-    conn = psycopg2.connect(database=settings.POSTGRES_DB, user=settings.POSTGRES_USER, password=settings.POSTGRES_PASSWORD, host='localhost')
+    conn = psycopg2.connect(database=settings.POSTGRES_DB, user=settings.POSTGRES_USER, password=settings.POSTGRES_PASSWORD, host=settings.POSTGRES_HOST, port=settings.POSTGRES_PORT)
     try:
         cur = conn.cursor(
-            cursor_factory = psycopg2.extras.RealDictCursor
+            cursor_factory = RealDictCursor
         )
         yield cur
     except Exception as e:

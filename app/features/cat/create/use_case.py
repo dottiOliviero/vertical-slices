@@ -1,5 +1,7 @@
-from app.database import cursor_generator
 from psycopg2.sql import SQL, Identifier
+
+from app.database import cursor_generator
+
 from .models import CreateCatRequestBody
 
 CREATE_CAT_BASE_QUERY = "INSERT INTO {} (name, age, color) VALUES (%s,%s,%s) RETURNING *"

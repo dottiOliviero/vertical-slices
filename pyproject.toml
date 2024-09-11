@@ -10,8 +10,8 @@ readme = "README.md"
 python = "^3.10"
 fastapi = "^0.92.0"
 uvicorn = "^0.20.0"
-psycopg2 = "^2.9.5"
 pydantic = {version = "^1.10.5", extras = ["dotenv"]}
+psycopg2 = "^2.9.9"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -19,7 +19,16 @@ black = "^23.1.0"
 pytest = "^7.2.1"
 httpx = "^0.23.3"
 pytest-mock = "^3.10.0"
+ruff = "^0.5.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+# E = pycodestyle errors
+# W = pycodestyle warnings
+# F = pyflake
+# I = isort
+lint.select = ["E", "W", "F", "I"]
+lint.ignore = ["E501"]
